@@ -30,6 +30,7 @@
 		FA5DACB82A92ABF20076918F /* MovieDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5DACB62A92ABF20076918F /* MovieDetailsVC.xib */; };
 		FA5DACBB2A92B9B80076918F /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DACBA2A92B9B80076918F /* MovieDetails.swift */; };
 		FA5DACBF2A92BCDA0076918F /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DACBE2A92BCDA0076918F /* MovieDetailsViewModel.swift */; };
+		FA5DACC32A92CCA00076918F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DACC22A92CCA00076918F /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		FA5DACB62A92ABF20076918F /* MovieDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailsVC.xib; sourceTree = "<group>"; };
 		FA5DACBA2A92B9B80076918F /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
 		FA5DACBE2A92BCDA0076918F /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
+		FA5DACC22A92CCA00076918F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 		FA25A1FF2A91765700D9A9BA /* Movies-List */ = {
 			isa = PBXGroup;
 			children = (
+				FA5DACC02A92CC810076918F /* Extensions */,
 				FA5DACAA2A92351B0076918F /* Supporting Files */,
 				FA5DAC9F2A9233DD0076918F /* Networking */,
 				FA25A2302A917A0300D9A9BA /* Features */,
@@ -294,6 +297,14 @@
 				FA5DACBE2A92BCDA0076918F /* MovieDetailsViewModel.swift */,
 			);
 			path = "View Model";
+			sourceTree = "<group>";
+		};
+		FA5DACC02A92CC810076918F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FA5DACC22A92CCA00076918F /* ViewController.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -545,6 +556,7 @@
 				FA25A2342A917A4E00D9A9BA /* PopularMoviesViewController.swift in Sources */,
 				FA25A2032A91765700D9A9BA /* SceneDelegate.swift in Sources */,
 				FA5DACA72A9233DD0076918F /* EndPoints.swift in Sources */,
+				FA5DACC32A92CCA00076918F /* ViewController.swift in Sources */,
 				FA5DACBF2A92BCDA0076918F /* MovieDetailsViewModel.swift in Sources */,
 				FA5DACA52A9233DD0076918F /* NetworkClient.swift in Sources */,
 				FA5DACB12A923A970076918F /* PopularMoviesViewModel.swift in Sources */,
