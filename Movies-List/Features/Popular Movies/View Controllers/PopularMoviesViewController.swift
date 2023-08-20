@@ -80,6 +80,13 @@ class PopularMoviesViewController: UICollectionViewController, UICollectionViewD
         return CGSize(width: width, height: (width * 1.5))
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let movie = viewModel.popularMoviesList[indexPath.row]
+        let vc = MovieDetailsVC()
+        vc.viewModel.selectedMovie = movie
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if(self.collectionView.contentOffset.y >= (self.collectionView.contentSize.height - self.collectionView.bounds.size.height)) && !viewModel.isPageRefreshing && viewModel.page < viewModel.totalPages {
             viewModel.isPageRefreshing = true
