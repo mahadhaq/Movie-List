@@ -15,7 +15,11 @@ protocol PopularMoviesViewDelegate: AnyObject {
 class PopularMoviesViewModel {
     // MARK: - Properties
     var popularMoviesList = [MovieSummary]()
+    var totalPages = 0
     weak var delegate: PopularMoviesViewDelegate?
+    var page: Int32 = 1
+    var isPageRefreshing:Bool = false
+    
     // MARK: - Set up
     
     func set(view: PopularMoviesViewDelegate) {
@@ -25,8 +29,16 @@ class PopularMoviesViewModel {
     // MARK: - Network Manager calls
     
     func fetchMoviesList() {
-        NetworkClient.shared.getRequest(EndPoints.popularMovies, parameters: nil, headers: ApiHeader.header) { (list: PopularMoviesDataModel) in
-            self.popularMoviesList = list.results
+        let params = ["page": page] as [String: AnyObject]
+        NetworkClient.shared.getRequest(EndPoints.popularMovies, parameters: params, headers: ApiHeader.header) { (list: PopularMoviesDataModel) in
+            self.totalPages = list.totalPages
+            if self.page == 1 {
+                self.popularMoviesList = list.results
+            }
+            else {
+                self.popularMoviesList.append(contentsOf: list.results)
+            }
+            self.isPageRefreshing = false
             self.delegate?.successfullyReceivedMoviesList()
         } failure: { error in
             print("Failed to fetch records")

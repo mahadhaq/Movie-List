@@ -7,21 +7,42 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "PopularMovieCell"
 
-class PopularMoviesViewController: UICollectionViewController {
+class PopularMoviesViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    
+    // MARK: - Properties
+    var viewModel = PopularMoviesViewModel()
+    // MARK: - Life cycle
+    init() {
+        let layout = UICollectionViewFlowLayout()
+//        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+//        layout.minimumLineSpacing = 20
+        layout.minimumInteritemSpacing = 20
+        super.init(collectionViewLayout: layout)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
+        
+        navigationItem.title = "Popular"
+        self.viewModel.set(view: self)
+        
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView.register(UINib(nibName: reuseIdentifier, bundle: Bundle.main), forCellWithReuseIdentifier: reuseIdentifier)
 
-        // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.viewModel.page = 1
+        self.viewModel.fetchMoviesList()
+    }
+    
 
     /*
     // MARK: - Navigation
@@ -37,52 +58,42 @@ class PopularMoviesViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return self.viewModel.popularMoviesList.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PopularMovieCell
         // Configure the cell
+        cell.config(movie: self.viewModel.popularMoviesList[indexPath.row])
     
         return cell
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (collectionView.frame.width - 20) * 0.5
+        return CGSize(width: width, height: (width * 1.5))
     }
-    */
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if(self.collectionView.contentOffset.y >= (self.collectionView.contentSize.height - self.collectionView.bounds.size.height)) && !viewModel.isPageRefreshing && viewModel.page < viewModel.totalPages {
+            viewModel.isPageRefreshing = true
+            viewModel.page = viewModel.page + 1
+            viewModel.fetchMoviesList()
+        }
+    }
+}
+    
+
+extension PopularMoviesViewController: PopularMoviesViewDelegate {
+    func successfullyReceivedMoviesList() {
+        self.collectionView.reloadData()
+    }
+    
     
 }

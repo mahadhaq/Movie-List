@@ -10,6 +10,7 @@ import Foundation
 class EndPoints {
     public static let BASE_URL = "https://api.themoviedb.org/3/movie"
     public static let popularMovies = BASE_URL + "/popular"
+    public static let imageURL = "https://image.tmdb.org/t/p/w300"
 }
 
 class ApiHeader {

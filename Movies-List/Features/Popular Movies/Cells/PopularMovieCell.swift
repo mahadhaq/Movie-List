@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PopularMovieCell: UICollectionViewCell {
 
@@ -17,5 +18,11 @@ class PopularMovieCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
+    func config(movie:MovieSummary) {
+        let url = URL(string: EndPoints.imageURL)?.appendingPathComponent(movie.posterPath ?? "")
+        self.imgView.sd_setImage(with: url, completed: nil)
+        self.titleLbl.text = movie.title
+        self.descriptionLbl.text = movie.overview
+    }
 }
