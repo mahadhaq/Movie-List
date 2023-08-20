@@ -18,6 +18,7 @@
 		FA25A2352A917A4E00D9A9BA /* PopularMoviesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA25A2332A917A4E00D9A9BA /* PopularMoviesViewController.xib */; };
 		FA5DAC8F2A922A760076918F /* PopularMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DAC8D2A922A760076918F /* PopularMovieCell.swift */; };
 		FA5DAC902A922A760076918F /* PopularMovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5DAC8E2A922A760076918F /* PopularMovieCell.xib */; };
+		FA5DAC932A922E050076918F /* MovieSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DAC922A922E050076918F /* MovieSummary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		FA25A2332A917A4E00D9A9BA /* PopularMoviesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularMoviesViewController.xib; sourceTree = "<group>"; };
 		FA5DAC8D2A922A760076918F /* PopularMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMovieCell.swift; sourceTree = "<group>"; };
 		FA5DAC8E2A922A760076918F /* PopularMovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularMovieCell.xib; sourceTree = "<group>"; };
+		FA5DAC922A922E050076918F /* MovieSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSummary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 		FA25A2312A917A1000D9A9BA /* Popular Movies */ = {
 			isa = PBXGroup;
 			children = (
+				FA5DAC912A922DDD0076918F /* Model */,
 				FA5DAC8C2A92281F0076918F /* Cells */,
 				FA25A2362A917B3E00D9A9BA /* View Controllers */,
 			);
@@ -163,6 +166,14 @@
 				FA5DAC8E2A922A760076918F /* PopularMovieCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		FA5DAC912A922DDD0076918F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA5DAC922A922E050076918F /* MovieSummary.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +310,7 @@
 			files = (
 				FA5DAC8F2A922A760076918F /* PopularMovieCell.swift in Sources */,
 				FA25A2012A91765700D9A9BA /* AppDelegate.swift in Sources */,
+				FA5DAC932A922E050076918F /* MovieSummary.swift in Sources */,
 				FA25A2342A917A4E00D9A9BA /* PopularMoviesViewController.swift in Sources */,
 				FA25A2032A91765700D9A9BA /* SceneDelegate.swift in Sources */,
 			);
