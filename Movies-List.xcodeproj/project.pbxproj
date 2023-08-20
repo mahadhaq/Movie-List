@@ -25,6 +25,7 @@
 		FA5DACA52A9233DD0076918F /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DACA02A9233DD0076918F /* NetworkClient.swift */; };
 		FA5DACA72A9233DD0076918F /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DACA22A9233DD0076918F /* EndPoints.swift */; };
 		FA5DACA92A9233DD0076918F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DACA42A9233DD0076918F /* NetworkManager.swift */; };
+		FA5DACB12A923A970076918F /* PopularMoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DACB02A923A970076918F /* PopularMoviesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		FA5DACA02A9233DD0076918F /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		FA5DACA22A9233DD0076918F /* EndPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		FA5DACA42A9233DD0076918F /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		FA5DACB02A923A970076918F /* PopularMoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 		FA25A2312A917A1000D9A9BA /* Popular Movies */ = {
 			isa = PBXGroup;
 			children = (
+				FA5DACAF2A923A430076918F /* View Model */,
 				FA5DAC912A922DDD0076918F /* Model */,
 				FA5DAC8C2A92281F0076918F /* Cells */,
 				FA25A2362A917B3E00D9A9BA /* View Controllers */,
@@ -239,6 +242,14 @@
 			children = (
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FA5DACAF2A923A430076918F /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA5DACB02A923A970076918F /* PopularMoviesViewModel.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -489,6 +500,7 @@
 				FA25A2032A91765700D9A9BA /* SceneDelegate.swift in Sources */,
 				FA5DACA72A9233DD0076918F /* EndPoints.swift in Sources */,
 				FA5DACA52A9233DD0076918F /* NetworkClient.swift in Sources */,
+				FA5DACB12A923A970076918F /* PopularMoviesViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
