@@ -20,8 +20,8 @@ class PopularMovieCell: UICollectionViewCell {
     }
     
     func config(movie:MovieSummary) {
-        self.imgView.sd_setImage(with: movie.posterURL, completed: nil)
-        self.titleLbl.text = movie.title
-        self.descriptionLbl.text = movie.overview
+        self.imgView.sd_setImage(with: movie.posterURL, placeholderImage: UIImage(named: "posterPlaceHolder"))
+        self.titleLbl.text = movie.title  ?? "N/A"
+        self.descriptionLbl.text = movie.overview  ?? "N/A"
     }
 }

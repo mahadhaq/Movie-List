@@ -10,6 +10,7 @@ import Foundation
 
 protocol PopularMoviesViewDelegate: AnyObject {
     func successfullyReceivedMoviesList()
+    func failedToReceivedMoviesList(message: String)
 }
 
 class PopularMoviesViewModel {
@@ -39,9 +40,15 @@ class PopularMoviesViewModel {
                 self.popularMoviesList.append(contentsOf: list.results)
             }
             self.isPageRefreshing = false
-            self.delegate?.successfullyReceivedMoviesList()
+            if self.popularMoviesList.count > 0 {
+                self.delegate?.successfullyReceivedMoviesList()
+            }
+            else {
+                self.delegate?.failedToReceivedMoviesList(message: "No Data Found")
+            }
         } failure: { error in
             print("Failed to fetch records")
+            self.delegate?.failedToReceivedMoviesList(message: error)
         }
 
     }

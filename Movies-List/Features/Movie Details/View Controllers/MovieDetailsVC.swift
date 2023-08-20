@@ -63,22 +63,22 @@ class MovieDetailsVC: UIViewController {
 extension MovieDetailsVC: MovieDetailsViewDelegate {
     func successfullyReceivedMovieDetails() {
         if let movie = viewModel.movieDetail {
-            self.backdropImgView.sd_setImage(with: movie.backdropURL, completed: nil)
-            self.posterImgView.sd_setImage(with: movie.posterURL, completed: nil)
-            self.titleLbl.text = movie.title
-            self.overviewLbl.text = movie.overview
-            self.tagline.text = movie.tagline
-            self.dateTimeLbl.text = "\(movie.releaseDate ?? "") \u{2022} \(self.calculateTime(movie.runtime)) "
+            self.backdropImgView.sd_setImage(with: movie.backdropURL, placeholderImage: UIImage(named: "posterPlaceHolder"))
+            self.posterImgView.sd_setImage(with: movie.posterURL, placeholderImage: UIImage(named: "posterPlaceHolder"))
+            self.titleLbl.text = movie.title ?? "N/A"
+            self.overviewLbl.text = movie.overview  ?? "N/A"
+            self.tagline.text = movie.tagline  ?? "N/A"
+            self.dateTimeLbl.text = "\(movie.releaseDate ?? "N/A") \u{2022} \(self.calculateTime(movie.runtime)) "
             self.GenreLbl.text = movie.genres.map { $0.name }.joined(separator: ", ")
         }
     }
     
     func failedToReceivedMovieDetails() {
-        self.backdropImgView.sd_setImage(with: viewModel.selectedMovie.backdropURL, completed: nil)
-        self.posterImgView.sd_setImage(with: viewModel.selectedMovie.posterURL, completed: nil)
-        self.titleLbl.text = viewModel.selectedMovie.title
-        self.overviewLbl.text = viewModel.selectedMovie.overview
-        self.dateTimeLbl.text = viewModel.selectedMovie.releaseDate
+        self.backdropImgView.sd_setImage(with: viewModel.selectedMovie.backdropURL, placeholderImage: UIImage(named: "backDropPlaceHolder"))
+        self.posterImgView.sd_setImage(with: viewModel.selectedMovie.posterURL, placeholderImage: UIImage(named: "posterPlaceHolder"))
+        self.titleLbl.text = viewModel.selectedMovie.title ?? "N/A"
+        self.overviewLbl.text = viewModel.selectedMovie.overview  ?? "N/A"
+        self.dateTimeLbl.text = viewModel.selectedMovie.releaseDate  ?? "N/A"
     }
     
     

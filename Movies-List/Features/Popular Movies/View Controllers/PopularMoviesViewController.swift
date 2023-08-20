@@ -102,5 +102,8 @@ extension PopularMoviesViewController: PopularMoviesViewDelegate {
         self.collectionView.reloadData()
     }
     
+    func failedToReceivedMoviesList(message: String) {
+        self.showAlert(title: "Error!", message: message)
+    }
     
 }
