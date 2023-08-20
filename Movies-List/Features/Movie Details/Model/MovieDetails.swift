@@ -9,15 +9,28 @@ import Foundation
 
 public struct MovieDetails: Codable {
     public let genres: [Genre]
-    public let backdropPath: String
+    public let backdropPath: String?
     public let id: Int
-    public let overview: String
-    public let posterPath: String
-    public let releaseDate: String
-    public let tagline: String
-    public let title: String
+    public let overview: String?
+    public let posterPath: String?
+    public let releaseDate: String?
+    public let tagline: String?
+    public let title: String?
     public let runtime: Int
     
+    public var posterURL: URL {
+        guard let baseURL = URL(string: EndPoints.imageURL) else {
+            preconditionFailure("Unable to build URL")
+        }
+        return baseURL.appendingPathComponent(posterPath ?? "")
+    }
+    
+    public var backdropURL: URL {
+        guard let baseURL = URL(string: EndPoints.imageURL) else {
+            preconditionFailure("Unable to build URL")
+        }
+        return baseURL.appendingPathComponent(backdropPath ?? "")
+    }
     
     enum CodingKeys: String, CodingKey {
         case genres
