@@ -22,6 +22,9 @@
 		FA5DAC8F2A922A760076918F /* PopularMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DAC8D2A922A760076918F /* PopularMovieCell.swift */; };
 		FA5DAC902A922A760076918F /* PopularMovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5DAC8E2A922A760076918F /* PopularMovieCell.xib */; };
 		FA5DAC932A922E050076918F /* MovieSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DAC922A922E050076918F /* MovieSummary.swift */; };
+		FA5DACA52A9233DD0076918F /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DACA02A9233DD0076918F /* NetworkClient.swift */; };
+		FA5DACA72A9233DD0076918F /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DACA22A9233DD0076918F /* EndPoints.swift */; };
+		FA5DACA92A9233DD0076918F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DACA42A9233DD0076918F /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		FA5DAC8D2A922A760076918F /* PopularMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMovieCell.swift; sourceTree = "<group>"; };
 		FA5DAC8E2A922A760076918F /* PopularMovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularMovieCell.xib; sourceTree = "<group>"; };
 		FA5DAC922A922E050076918F /* MovieSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSummary.swift; sourceTree = "<group>"; };
+		FA5DACA02A9233DD0076918F /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		FA5DACA22A9233DD0076918F /* EndPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
+		FA5DACA42A9233DD0076918F /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +123,6 @@
 				E063426ECDD6238E36FA2629 /* Pods-Movies-ListTests.debug.xcconfig */,
 				AE875899092ACE89F426A0F8 /* Pods-Movies-ListTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -146,6 +151,8 @@
 		FA25A1FF2A91765700D9A9BA /* Movies-List */ = {
 			isa = PBXGroup;
 			children = (
+				FA5DACAA2A92351B0076918F /* Supporting Files */,
+				FA5DAC9F2A9233DD0076918F /* Networking */,
 				FA25A2302A917A0300D9A9BA /* Features */,
 				FA25A2002A91765700D9A9BA /* AppDelegate.swift */,
 				FA25A2022A91765700D9A9BA /* SceneDelegate.swift */,
@@ -215,6 +222,23 @@
 				FA5DAC922A922E050076918F /* MovieSummary.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		FA5DAC9F2A9233DD0076918F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				FA5DACA02A9233DD0076918F /* NetworkClient.swift */,
+				FA5DACA22A9233DD0076918F /* EndPoints.swift */,
+				FA5DACA42A9233DD0076918F /* NetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		FA5DACAA2A92351B0076918F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -457,11 +481,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA5DACA92A9233DD0076918F /* NetworkManager.swift in Sources */,
 				FA5DAC8F2A922A760076918F /* PopularMovieCell.swift in Sources */,
 				FA25A2012A91765700D9A9BA /* AppDelegate.swift in Sources */,
 				FA5DAC932A922E050076918F /* MovieSummary.swift in Sources */,
 				FA25A2342A917A4E00D9A9BA /* PopularMoviesViewController.swift in Sources */,
 				FA25A2032A91765700D9A9BA /* SceneDelegate.swift in Sources */,
+				FA5DACA72A9233DD0076918F /* EndPoints.swift in Sources */,
+				FA5DACA52A9233DD0076918F /* NetworkClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
