@@ -31,6 +31,20 @@ struct MovieSummary: Codable {
     let popularity: Double
     let posterPath, releaseDate, title: String?
     let video: Bool
+    
+    public var posterURL: URL {
+        guard let baseURL = URL(string: EndPoints.imageURL) else {
+            preconditionFailure("Unable to build URL")
+        }
+        return baseURL.appendingPathComponent(posterPath ?? "")
+    }
+    
+    public var backdropURL: URL {
+        guard let baseURL = URL(string: EndPoints.imageURL) else {
+            preconditionFailure("Unable to build URL")
+        }
+        return baseURL.appendingPathComponent(backdropPath ?? "")
+    }
 
     enum CodingKeys: String, CodingKey {
         case adult

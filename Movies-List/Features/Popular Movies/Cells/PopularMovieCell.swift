@@ -20,8 +20,7 @@ class PopularMovieCell: UICollectionViewCell {
     }
     
     func config(movie:MovieSummary) {
-        let url = URL(string: EndPoints.imageURL)?.appendingPathComponent(movie.posterPath ?? "")
-        self.imgView.sd_setImage(with: url, completed: nil)
+        self.imgView.sd_setImage(with: movie.posterURL, completed: nil)
         self.titleLbl.text = movie.title
         self.descriptionLbl.text = movie.overview
     }
